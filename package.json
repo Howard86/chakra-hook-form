@@ -53,6 +53,8 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.17.7",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "@size-limit/preset-small-lib": "^7.0.8",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-info": "^5.3.21",
@@ -76,6 +78,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
