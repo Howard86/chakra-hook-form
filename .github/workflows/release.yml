@@ -1,0 +1,46 @@
+name: Conventional Changelog
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - name: Checkout Git repo
+        uses: actions/checkout@main
+
+      # Version bump
+      - name: Automated Version Bump
+        id: versionBump
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Automated GitHub Release
+        uses: actions/create-release@v1
+        if: ${{ steps.versionBump.outputs.skipped == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.versionBump.outputs.tag }}
+          release_name: ${{ steps.versionBump.outputs.tag }}
+          body: ${{ steps.versionBump.outputs.clean_changelog }}
+
+      - name: Set up Node Environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - run: yarn install
+      - run: yarn test
+      - run: yarn build
+
+      - name: Publish NPM packages
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
