@@ -10,4 +10,7 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.eslint.json',
   },
+  rules: {
+    '@typescript-eslint/no-unsafe-call': 0,
+  },
 };

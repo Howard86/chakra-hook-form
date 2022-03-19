@@ -36,7 +36,10 @@
     "trailingComma": "es5"
   },
   "jest": {
-    "testEnvironment": "jest-environment-jsdom"
+    "testEnvironment": "jest-environment-jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest-setup.ts"
+    ]
   },
   "peerDependencies": {
     "react": ">=16"
