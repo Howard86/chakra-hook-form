@@ -19,7 +19,8 @@
     "size": "size-limit",
     "start": "dts watch",
     "storybook": "start-storybook -p 6006",
-    "test": "dts test --passWithNoTests"
+    "test": "dts test --passWithNoTests",
+    "cov": "dts test --passWithNoTests --coverage && open-cli coverage/lcov-report/index.html"
   },
   "commitlint": {
     "extends": [
