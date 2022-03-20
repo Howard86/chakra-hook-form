@@ -13,12 +13,10 @@
   "scripts": {
     "analyze": "size-limit --why",
     "build": "dts build",
-    "build-storybook": "build-storybook",
     "lint": "dts lint",
     "prepare": "husky install && dts build",
     "size": "size-limit",
     "start": "dts watch",
-    "storybook": "start-storybook -p 6006",
     "test": "dts test --passWithNoTests",
     "cov": "dts test --passWithNoTests --coverage && open-cli coverage/lcov-report/index.html"
   },
@@ -39,11 +37,21 @@
   "jest": {
     "testEnvironment": "jest-environment-jsdom",
     "setupFilesAfterEnv": [
-      "<rootDir>/jest-setup.ts"
-    ]
+      "<rootDir>/test/jest-setup.ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.jest.json"
+      }
+    }
   },
   "peerDependencies": {
-    "react": ">=16"
+    "@chakra-ui/react": ">=1",
+    "@emotion/react": ">=11",
+    "@emotion/styled": ">=11",
+    "framer-motion": ">=6",
+    "react": ">=17",
+    "react-hook-form": ">=7"
   },
   "engines": {
     "node": ">=12"
@@ -60,14 +68,12 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.17.7",
+    "@chakra-ui/react": "^1.8.6",
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@size-limit/preset-small-lib": "^7.0.8",
-    "@storybook/addon-essentials": "^6.4.19",
-    "@storybook/addon-info": "^5.3.21",
-    "@storybook/addon-links": "^6.4.19",
-    "@storybook/addons": "^6.4.19",
-    "@storybook/react": "^6.4.19",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@tsconfig/create-react-app": "^1.0.2",
@@ -87,11 +93,13 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "framer-motion": "^6",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "open-cli": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7",
     "react-is": "^17.0.2",
     "size-limit": "^7.0.8",
     "tslib": "^2.3.1",

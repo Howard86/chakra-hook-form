@@ -12,6 +12,11 @@
     "react-app-polyfill": "^3.0.0"
   },
   "alias": {
+    "@chakra-ui/react": "../node_modules/@chakra-ui/react",
+    "@emotion/react": "../node_modules/@emotion/react",
+    "@emotion/styled": "../node_modules/@emotion/styled",
+    "framer-motion": "../node_modules/framer-motion",
+    "react-hook-form": "../node_modules/react-hook-form",
     "react": "../node_modules/react",
     "react-dom": "../node_modules/react-dom/profiling",
     "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
