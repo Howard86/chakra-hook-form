@@ -13,12 +13,10 @@
   "scripts": {
     "analyze": "size-limit --why",
     "build": "dts build",
-    "build-storybook": "build-storybook",
     "lint": "dts lint",
     "prepare": "husky install && dts build",
     "size": "size-limit",
     "start": "dts watch",
-    "storybook": "start-storybook -p 6006",
     "test": "dts test --passWithNoTests",
     "cov": "dts test --passWithNoTests --coverage && open-cli coverage/lcov-report/index.html"
   },
