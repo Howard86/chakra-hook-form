@@ -37,8 +37,13 @@
   "jest": {
     "testEnvironment": "jest-environment-jsdom",
     "setupFilesAfterEnv": [
-      "<rootDir>/jest-setup.ts"
-    ]
+      "<rootDir>/test/jest-setup.ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.jest.json"
+      }
+    }
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=1",
