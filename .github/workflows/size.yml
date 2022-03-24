@@ -1,7 +1,5 @@
 name: size
-on: 
-  workflow_dispatch:
-  pull_request:
+on: [pull_request]
 jobs:
   size:
     runs-on: ubuntu-latest
