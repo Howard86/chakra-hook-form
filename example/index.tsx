@@ -45,7 +45,7 @@ const LoginForm = () => {
         errors={form.formState.errors}
         options={{
           required: 'password is required',
-          min: {
+          minLength: {
             message: 'password has invalid format',
             value: 6,
           },
