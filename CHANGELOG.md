@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/Howard86/chakra-hook-form/compare/v0.2.0...v0.3.0) (2022-03-25)
+
+
+### Features
+
+* add FormCheckbox ([73d434f](https://github.com/Howard86/chakra-hook-form/commit/73d434f1e8e7fad4b0ae6050ab8633a73bbd4fc5))
+
+
+
 # [0.2.0](https://github.com/Howard86/chakra-hook-form/compare/v0.1.0...v0.2.0) (2022-03-24)
 
 
