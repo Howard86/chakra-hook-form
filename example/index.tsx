@@ -4,7 +4,7 @@ import { Button, ChakraProvider, Container, VStack } from '@chakra-ui/react';
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FormInput, FormSelect } from '../src';
+import { FormCheckbox, FormInput, FormSelect } from '../src';
 
 const SALUTATIONS = ['', 'Mr', 'Mrs', 'Ms', 'Dr', 'N/A'];
 const GENDERS = ['male', 'female'];
@@ -14,6 +14,7 @@ const defaultValues = {
   username: '',
   password: '',
   gender: undefined as string | undefined,
+  remembered: false,
 };
 
 const LoginForm = () => {
@@ -44,7 +45,7 @@ const LoginForm = () => {
         errors={form.formState.errors}
         options={{
           required: 'password is required',
-          min: {
+          minLength: {
             message: 'password has invalid format',
             value: 6,
           },
@@ -62,12 +63,24 @@ const LoginForm = () => {
           <option key={gender}>{gender}</option>
         ))}
       </FormSelect>
+      <FormCheckbox
+        name="remembered"
+        errors={form.formState.errors}
+        register={form.register}
+      >
+        Remember email?
+      </FormCheckbox>
       <Button type="submit">Submit</Button>
       {form.formState.isSubmitSuccessful && (
         <>
           <p data-testid="result-username">{formState.username}</p>
           <p data-testid="result-password">{formState.password}</p>
           <p data-testid="result-gender">{formState.gender}</p>
+          <p data-testid="result-gender">
+            {formState.remembered
+              ? 'will remember email'
+              : 'will not keep email'}
+          </p>
         </>
       )}
     </VStack>
