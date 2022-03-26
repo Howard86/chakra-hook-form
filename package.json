@@ -39,6 +39,9 @@
     "setupFilesAfterEnv": [
       "<rootDir>/test/jest-setup.ts"
     ],
+    "moduleNameMapper": {
+      "\\.(css|scss|sass|less)$": "identity-obj-proxy"
+    },
     "globals": {
       "ts-jest": {
         "tsconfig": "tsconfig.jest.json"
