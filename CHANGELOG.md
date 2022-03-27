@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/Howard86/chakra-hook-form/compare/v0.4.0...v0.4.1) (2022-03-27)
+
+
+### Bug Fixes
+
+* remove css import in component ([4b0168d](https://github.com/Howard86/chakra-hook-form/commit/4b0168dccb3f0874de3c0ccc0bea0547f853d60d))
+
+
+
 # [0.4.0](https://github.com/Howard86/chakra-hook-form/compare/v0.3.0...v0.4.0) (2022-03-27)
 
 
