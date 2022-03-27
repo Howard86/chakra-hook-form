@@ -34,7 +34,7 @@ export interface FormDatePickerProps<T extends FieldValues>
   label?: string;
   helperText?: string;
   name: Path<T>;
-  errors: FieldErrors<T>;
+  errors?: FieldErrors<T>;
   control: Control<T>;
   options?: Parameters<UseFormRegister<T>>[1];
 }
@@ -60,7 +60,7 @@ export const FormDatePicker = <T extends FieldValues>({
   placeholder,
   ...props
 }: FormDatePickerProps<T>) => {
-  const isError = isInvalid || Boolean(errors[name]?.message);
+  const isError = isInvalid || Boolean(errors?.[name]?.message);
 
   const render: ControllerProps<T>['render'] = ({ field }) => {
     if (
@@ -102,7 +102,7 @@ export const FormDatePicker = <T extends FieldValues>({
         rules={options}
       />
       {!isError && helperText && <FormHelperText>{helperText}</FormHelperText>}
-      {errors[name]?.message && (
+      {errors?.[name]?.message && (
         <FormErrorMessage>{errors[name].message}</FormErrorMessage>
       )}
     </FormControl>

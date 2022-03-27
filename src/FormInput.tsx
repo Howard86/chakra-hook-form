@@ -18,7 +18,7 @@ export interface FormInputProps<T extends FieldValues> extends InputProps {
   label?: string;
   helperText?: string;
   name: Path<T>;
-  errors: FieldErrors<T>;
+  errors?: FieldErrors<T>;
   register: UseFormRegister<T>;
   options?: Parameters<UseFormRegister<T>>[1];
 }
@@ -43,7 +43,7 @@ export const FormInput = <T extends FieldValues>({
   // Input Props
   ...props
 }: FormInputProps<T>) => {
-  const isError = isInvalid || Boolean(errors[name]?.message);
+  const isError = isInvalid || Boolean(errors?.[name]?.message);
 
   return (
     <FormControl
@@ -65,7 +65,7 @@ export const FormInput = <T extends FieldValues>({
         {...props}
       />
       {!isError && helperText && <FormHelperText>{helperText}</FormHelperText>}
-      {errors[name]?.message && (
+      {errors?.[name]?.message && (
         <FormErrorMessage>{errors[name].message}</FormErrorMessage>
       )}
     </FormControl>

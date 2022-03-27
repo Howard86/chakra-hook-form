@@ -20,7 +20,7 @@ export interface FormCheckboxProps<T extends FieldValues>
   label?: string;
   helperText?: string;
   name: Path<T>;
-  errors: FieldErrors<T>;
+  errors?: FieldErrors<T>;
   register: UseFormRegister<T>;
   options?: Parameters<UseFormRegister<T>>[1];
 }
@@ -46,7 +46,7 @@ export const FormCheckbox = <T extends FieldValues>({
   children,
   ...props
 }: FormCheckboxProps<T>) => {
-  const isError = isInvalid || Boolean(errors[name]?.message);
+  const isError = isInvalid || Boolean(errors?.[name]?.message);
 
   return (
     <FormControl
@@ -70,7 +70,7 @@ export const FormCheckbox = <T extends FieldValues>({
         {children}
       </Checkbox>
       {!isError && helperText && <FormHelperText>{helperText}</FormHelperText>}
-      {errors[name]?.message && (
+      {errors?.[name]?.message && (
         <FormErrorMessage>{errors[name].message}</FormErrorMessage>
       )}
     </FormControl>
