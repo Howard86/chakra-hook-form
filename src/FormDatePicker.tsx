@@ -64,17 +64,26 @@ export const FormDatePicker = <T extends FieldValues>({
 }: FormDatePickerProps<T>) => {
   const isError = isInvalid || Boolean(errors[name]?.message);
 
-  const render: ControllerProps<T>['render'] = ({ field }) => (
-    <ReactDatePicker
-      id={name}
-      onChange={field.onChange}
-      onBlur={field.onBlur}
-      placeholderText={placeholder}
-      customInput={<Input ref={field.ref} size={size} variant={variant} />}
-      selected={field.value}
-      {...props}
-    />
-  );
+  const render: ControllerProps<T>['render'] = ({ field }) => {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      !((field.value as any) instanceof Date)
+    ) {
+      throw new Error('Please inject a Date object');
+    }
+
+    return (
+      <ReactDatePicker
+        id={name}
+        onChange={field.onChange}
+        onBlur={field.onBlur}
+        placeholderText={placeholder}
+        customInput={<Input ref={field.ref} size={size} variant={variant} />}
+        selected={field.value}
+        {...props}
+      />
+    );
+  };
 
   return (
     <FormControl

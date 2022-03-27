@@ -10,7 +10,7 @@ const SALUTATIONS = ['', 'Mr', 'Mrs', 'Ms', 'Dr', 'N/A'];
 const GENDERS = ['male', 'female'];
 
 const defaultValues = {
-  registerDate: Date.now(),
+  registerDate: new Date(),
   salutation: SALUTATIONS[0],
   username: '',
   password: '',
@@ -80,7 +80,9 @@ const LoginForm = () => {
       <Button type="submit">Submit</Button>
       {form.formState.isSubmitSuccessful && (
         <>
-          <p data-testid="result-registeredDate">{formState.registerDate}</p>
+          <p data-testid="result-registeredDate">
+            {formState.registerDate.toLocaleDateString()}
+          </p>
           <p data-testid="result-username">{formState.username}</p>
           <p data-testid="result-password">{formState.password}</p>
           <p data-testid="result-gender">{formState.gender}</p>
