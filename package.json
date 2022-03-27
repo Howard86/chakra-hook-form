@@ -39,6 +39,9 @@
     "setupFilesAfterEnv": [
       "<rootDir>/test/jest-setup.ts"
     ],
+    "moduleNameMapper": {
+      "\\.(css|scss|sass|less)$": "identity-obj-proxy"
+    },
     "globals": {
       "ts-jest": {
         "tsconfig": "tsconfig.jest.json"
@@ -51,6 +54,7 @@
     "@emotion/styled": ">=11",
     "framer-motion": ">=6",
     "react": ">=17",
+    "react-datepicker": ">=4",
     "react-hook-form": ">=7"
   },
   "engines": {
@@ -79,6 +83,7 @@
     "@tsconfig/create-react-app": "^1.0.2",
     "@tsconfig/recommended": "^1.0.1",
     "@types/react": "^17.0.40",
+    "@types/react-datepicker": "^4.3.4",
     "@types/react-dom": "^17.0.13",
     "@types/testing-library__jest-dom": "^5.14.3",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
@@ -95,9 +100,11 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "framer-motion": "^6",
     "husky": "^7.0.4",
+    "identity-obj-proxy": "^3.0.0",
     "lint-staged": "^12.3.7",
     "open-cli": "^7.0.1",
     "react": "^17.0.2",
+    "react-datepicker": "^4.7.0",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7",
     "react-is": "^17.0.2",

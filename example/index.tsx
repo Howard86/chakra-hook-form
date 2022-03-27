@@ -4,12 +4,13 @@ import { Button, ChakraProvider, Container, VStack } from '@chakra-ui/react';
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FormCheckbox, FormInput, FormSelect } from '../src';
+import { FormCheckbox, FormDatePicker, FormInput, FormSelect } from '../src';
 
 const SALUTATIONS = ['', 'Mr', 'Mrs', 'Ms', 'Dr', 'N/A'];
 const GENDERS = ['male', 'female'];
 
 const defaultValues = {
+  registerDate: new Date(),
   salutation: SALUTATIONS[0],
   username: '',
   password: '',
@@ -31,6 +32,12 @@ const LoginForm = () => {
         }) as VoidFunction
       }
     >
+      <FormDatePicker
+        label="registered date"
+        name="registerDate"
+        control={form.control}
+        errors={form.formState.errors}
+      />
       <FormInput
         label="username"
         name="username"
@@ -73,10 +80,13 @@ const LoginForm = () => {
       <Button type="submit">Submit</Button>
       {form.formState.isSubmitSuccessful && (
         <>
+          <p data-testid="result-registeredDate">
+            {formState.registerDate.toLocaleDateString()}
+          </p>
           <p data-testid="result-username">{formState.username}</p>
           <p data-testid="result-password">{formState.password}</p>
           <p data-testid="result-gender">{formState.gender}</p>
-          <p data-testid="result-gender">
+          <p data-testid="result-remembered">
             {formState.remembered
               ? 'will remember email'
               : 'will not keep email'}
