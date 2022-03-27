@@ -3,6 +3,8 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import { useForm } from 'react-hook-form';
 import { FormDatePicker } from '../../src';
 
+import 'react-datepicker/dist/react-datepicker.css';
+
 const defaultValues = {
   startDate: new Date(2022, 2, 15),
   endState: new Date(2022, 2, 22),

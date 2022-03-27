@@ -18,8 +18,6 @@ import {
 } from 'react-hook-form';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
 
-import 'react-datepicker/dist/react-datepicker.css';
-
 export interface FormDatePickerProps<T extends FieldValues>
   extends Omit<ReactDatePickerProps, 'onChange' | 'selected'>,
     Pick<

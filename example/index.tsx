@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FormCheckbox, FormDatePicker, FormInput, FormSelect } from '../src';
 
+import 'react-datepicker/dist/react-datepicker.css';
+
 const SALUTATIONS = ['', 'Mr', 'Mrs', 'Ms', 'Dr', 'N/A'];
 const GENDERS = ['male', 'female'];
 
