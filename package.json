@@ -17,8 +17,9 @@
     "prepare": "husky install && dts build",
     "size": "size-limit",
     "start": "dts watch",
-    "test": "dts test --passWithNoTests",
-    "cov": "dts test --passWithNoTests --coverage && open-cli coverage/lcov-report/index.html"
+    "test": "dts test",
+    "cov": "dts test --coverage",
+    "cov:open": "open-cli coverage/lcov-report/index.html"
   },
   "commitlint": {
     "extends": [
