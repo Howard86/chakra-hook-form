@@ -19,7 +19,7 @@ export interface FormSelectProps<T extends FieldValues> extends SelectProps {
   label?: string;
   helperText?: string;
   name: Path<T>;
-  errors: FieldErrors<T>;
+  errors?: FieldErrors<T>;
   register: UseFormRegister<T>;
   options?: Parameters<UseFormRegister<T>>[1];
 }
@@ -45,7 +45,7 @@ export const FormSelect = <T extends FieldValues>({
   children,
   ...props
 }: FormSelectProps<T>) => {
-  const isError = isInvalid || Boolean(errors[name]?.message);
+  const isError = isInvalid || Boolean(errors?.[name]?.message);
 
   return (
     <FormControl
@@ -69,8 +69,8 @@ export const FormSelect = <T extends FieldValues>({
         {children}
       </Select>
       {!isError && helperText && <FormHelperText>{helperText}</FormHelperText>}
-      {errors[name]?.message && (
-        <FormErrorMessage>{errors[name].message}</FormErrorMessage>
+      {errors?.[name]?.message && (
+        <FormErrorMessage>{errors?.[name].message}</FormErrorMessage>
       )}
     </FormControl>
   );
